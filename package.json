@@ -1,6 +1,6 @@
 {
-  "name": "miners-guild-web",
-  "description": "Neutral DAO",
+  "name": "club-sos-web",
+  "description": "Marketing DAO",
   "version": "0.1.0",
   "type": "module",
   "postcss": {
@@ -10,7 +10,6 @@
     }
   },
   "scripts": {
-    "regenerate": "node tasks/generateContractLookup.js",
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "deploy": "node deploy.js",

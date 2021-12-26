@@ -1,9 +1,7 @@
-# Miners Guild 
+# Club SOS
 
-Community DAO for Neutral Dapps
- 
-
- 
+Community DAO for Marketing + Promotions for NFT projects 
+  
  
 
 ### Development commands
