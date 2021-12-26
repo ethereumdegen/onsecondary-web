@@ -318,7 +318,7 @@ export default {
             let primaryTokenAddress = web3utils.toChecksumAddress(stakableToken)
 
             let primaryBalance = this.guildBalances[primaryTokenAddress]
-            return parseFloat( MathHelper.rawAmountToFormatted(primaryBalance,8) )
+            return parseFloat( MathHelper.rawAmountToFormatted(primaryBalance,18) )
           },
 
           getAccountNameFromAddress(address){
