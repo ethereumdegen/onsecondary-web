@@ -46,6 +46,11 @@
          <div>
             <router-link to="/stake"  class="select-none no-underline bg-blue-700 mb-4 p-2 inline-block rounded hover:bg-blue-900 border-gray-800 border-2 cursor-pointer text-blue-100" style=" text-shadow: 1px 1px #222;"> Stake to Earn   </router-link> 
         </div>
+
+
+          <div>
+            <router-link to="/contribute"  class="select-none no-underline bg-gray-200 mb-4 p-2 inline-block rounded hover:bg-gray-300 border-gray-800 border-2 cursor-pointer text-gray-800" style=" text-shadow: 1px 1px #eee;"> Market your Dapps with Club SOS  </router-link> 
+        </div>
         </div>
 
 
