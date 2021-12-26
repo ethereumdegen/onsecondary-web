@@ -6,9 +6,9 @@
 
         <div class="mt-6 mx-2 flex-grow"> 
         <div class=" inline-block mx-2 ">
-        <img class="inline-block mb-1 " width="24" height="24" src="/images/pick.png" />
+        <img class="inline-block mb-1 " width="24" height="24" src="/images/preserver.png" />
         </div>
-        <router-link to="/" class='no-underline flex-grow inline text-xl text-gray-900 font-bold'>The Guild</router-link>
+        <router-link to="/" class='no-underline flex-grow inline text-xl text-gray-900 font-bold'>Club SOS</router-link>
        </div>
  
  

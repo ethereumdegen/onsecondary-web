@@ -19,9 +19,9 @@
      <div class="py-16 w-container">
         
        <div class="  px-2 ">
-          <div class="text-lg font-bold mb-4"> Join the Guild  </div>
+          <div class="text-lg font-bold mb-4"> Stake to Earn  </div>
 
-          <div class="text-sm   mb-8"> Deposit 0xBTC in the DAO contract to earn 'Guild Reserve tokens'. Guild Reserve tokens can be redeemed back to the contract to withdraw your original deposit plus any fees that the DAO has accrued.   </div>
+          <div class="text-sm   mb-8"> Deposit SOS in the Club SOS contract to earn 'Club Reserve tokens'. Club Reserve tokens can be redeemed back to the contract to withdraw your original deposit plus any fees that the contract has accrued from marketing sponsors.   </div>
            
           <div  class=" " v-if="!connectedToWeb3">
               <NotConnectedToWeb3 />
@@ -108,7 +108,7 @@ import TabsBar from './components/TabsBar.vue';
 import GenericTable from './components/GenericTable.vue';
 import GenericDropdown from './components/GenericDropdown.vue';
   
-const GuildContractABI = require('../contracts/MinersGuild.json')
+const ClubContractABI = require('../contracts/ClubSOS.json')
 
 import FrontendHelper from '../js/frontend-helper.js'
 
@@ -175,17 +175,16 @@ export default {
 
 
     async approveClicked(){
-         console.log('start approve ')
-
+         
 
       let accountAddress = this.web3Plug.getActiveAccountAddress()
 
       let chainId = this.web3Plug.getActiveNetId()
-      let guildContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['minersguild'].address
+      let guildContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['clubsos'].address
 
-       let tokenContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['0xbitcoin'].address
+       let tokenContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['sos'].address
 
-      let currencyDecimals  = 8 
+      let currencyDecimals  = 18 
       let currencyAmountRaw = MathHelper.formattedAmountToRaw(this.formInputs.currencyAmountFormatted,currencyDecimals) 
  
       let tokenContract = this.web3Plug.getTokenContract( tokenContractAddress );
@@ -205,23 +204,21 @@ export default {
       let accountAddress = this.web3Plug.getActiveAccountAddress()
 
       let chainId = this.web3Plug.getActiveNetId()
-      let guildContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['minersguild'].address
+      let guildContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['clubsos'].address
 
-       let tokenContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['0xbitcoin'].address
+       let tokenContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['sos'].address
 
-      let currencyDecimals  = 8 
+      let currencyDecimals  = 18 
       let currencyAmountRaw = MathHelper.formattedAmountToRaw(this.formInputs.currencyAmountFormatted,currencyDecimals) 
  
       let tokenContract = this.web3Plug.getTokenContract( tokenContractAddress );
      
-      let guildContract  = this.web3Plug.getCustomContract( GuildContractABI , guildContractAddress );
+      let guildContract  = this.web3Plug.getCustomContract( ClubContractABI , guildContractAddress );
 
     
-      if(this.networkSupportsApproveAndCall()){
-        let response = await tokenContract.methods.approveAndCall( guildContractAddress, currencyAmountRaw, '0x0' ).send({from:  accountAddress })
-      }else{
+      
         let response = await guildContract.methods.stakeCurrency( accountAddress, currencyAmountRaw ).send({from:  accountAddress })
-      }
+      
       
     },
 
@@ -231,9 +228,9 @@ export default {
       let accountAddress = this.web3Plug.getActiveAccountAddress()
 
      
-      let tokenContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['0xbitcoin'].address
+      let tokenContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['sos'].address
 
-       let guildContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['minersguild'].address
+       let guildContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['clubsos'].address
 
       this.tokenBalanceRaw = await  this.web3Plug.getTokenBalance(tokenContractAddress, accountAddress)
 
@@ -241,21 +238,21 @@ export default {
 
      // console.log('tokenBalanceRaw', tokenBalanceRaw )
 
-      this.tokenBalanceFormatted = parseFloat(   MathHelper.rawAmountToFormatted(this.tokenBalanceRaw  , 8  ) )
-      this.tokenAllowanceFormatted = parseFloat(   MathHelper.rawAmountToFormatted(this.tokenAllowanceRaw  , 8  ) )
+      this.tokenBalanceFormatted = parseFloat(   MathHelper.rawAmountToFormatted(this.tokenBalanceRaw  , 18  ) )
+      this.tokenAllowanceFormatted = parseFloat(   MathHelper.rawAmountToFormatted(this.tokenAllowanceRaw  , 18  ) )
 
     },
 
 
     networkSupportsApproveAndCall(){
 
-      let chainId = this.web3Plug.getActiveNetId()
+      
 
-      return (chainId == 1 || chainId == 5)
+      return false
     },
 
     hasEnoughAllowance(){
-      let currencyDecimals = 8
+      let currencyDecimals = 18
       let currencyAmountRaw = MathHelper.formattedAmountToRaw(this.formInputs.currencyAmountFormatted,currencyDecimals) 
  
       return (this.tokenAllowanceRaw >= currencyAmountRaw);

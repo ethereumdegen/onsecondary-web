@@ -16,37 +16,44 @@
 
   
 
-   <div class="section  border-b-2 border-black" style="background:#1d1d1d;">
+   <div class="section  border-b-2 border-black" style="background:#eee;">
      <div class=" ">
        <div class=" ">
 
        </div>
        <div class="  flex lg:flex-row flex-col  ">
  
-         <div class="  md:w-1/2  w-full mt-8 py-8  px-1  text-center">
+         <div class="    w-full mt-8 py-8  px-1  text-center">
 
             <div class="hidden text-white text-xl my-4">  Neutral grass-roots organization.  </div> 
 
-        <div>
-            <router-link to="/stake"  class="select-none no-underline bg-blue-700 mb-4 p-2 inline-block rounded hover:bg-blue-900 border-gray-800 border-2 cursor-pointer text-blue-100" style=" text-shadow: 1px 1px #222;"> Join the Guild   </router-link> 
-        </div>
+     
 
-            <div>
-            <a href="https://snapshot.org/#/0xbtcvault.eth" target="_blank"  class="select-none no-underline bg-blue-700 mb-16 p-2 inline-block rounded hover:bg-blue-900 border-gray-800 border-2 cursor-pointer text-blue-100" style=" text-shadow: 1px 1px #222;">Vote on Snapshot.org </a> 
-        </div>
-
- 
-      
-            <img src="@/assets/images/hero-dark2.png" class="pl-4" style="margin:0 auto;" />
-
-         </div>
-         <div class="   md:w-1/2  w-full  text-center ">
            
-            
-           <FrontPageMedia />
+
+        <div class="" style="">
+        <div class=""  style="margin:0 auto;max-width:600px">
+            <img src="@/assets/images/clubsos_v2.png" class="pl-4" />
+        </div>
+         </div>
+
+
+        <div class="mt-16">
+           <div>
+            <router-link to="/members"  class="select-none no-underline bg-gray-200 mb-4 p-2 inline-block rounded hover:bg-gray-300 border-gray-800 border-2 cursor-pointer text-gray-800" style=" text-shadow: 1px 1px #eee;"> View Members  </router-link> 
+        </div>
+        
+         <div>
+            <router-link to="/stake"  class="select-none no-underline bg-blue-700 mb-4 p-2 inline-block rounded hover:bg-blue-900 border-gray-800 border-2 cursor-pointer text-blue-100" style=" text-shadow: 1px 1px #222;"> Stake to Earn   </router-link> 
+        </div>
+        </div>
+
 
 
          </div>
+        
+          
+        
        </div>
      </div>
    </div>
@@ -61,16 +68,18 @@
            
                 <div class="text-2xl text-center"> How It Works </div>
 
+                
+
                 <ul class=" "> 
-                    <li class="my-4"> 1. Stake 0xBTC in the Guild Contract Pool </li>
-                    <li class="my-4" > 2. Neutral Dapps/Contracts donate their fees [in execution flow] to the Pool to earn Community Goodwill </li>
+                    <li class="my-4"> 1. Stake SOS in the Club SOS Contract </li>
+                    <li class="my-4" > 2. Neutral Dapps/Contracts donate some of their income to the Contract as revenue-share to use as a marketing+branding boost </li>
                     <li class="my-4" > 3. Unstake at any time to withdraw <span class="text-purple-300"> your original deposit + accrued donations </span>  </li>
                </ul>
 
-                <div class="text-lg text-center my-16 hidden "> TLDR: This is a funnel for donations from community-driven dapps. </div>
+                <div class="text-lg text-center my-16  "> TLDR: This is donations router for community-driven marketing and incentivization. </div>
 
 
-                <p class="text-gray-500 bg-gray-800 p-4 mt-8"> <img src="@/assets/images/information.png" width="20" class="inline"/> Smart contracts that pay fees into the Guild contract, during execution flow, are more likely to be promoted, supported, and used by the community. </p>
+                <p class="text-gray-500 bg-gray-800 p-4 mt-8"> <img src="@/assets/images/information.png" width="20" class="inline"/> Services perform revenue-share to the Club contract to incentivize SOS holders to participate and market their application since this gives SOS holders a financial interest in the application's success. </p>
 
          </div>
 

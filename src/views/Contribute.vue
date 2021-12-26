@@ -15,7 +15,7 @@
 
   
 
-   <div class="section   border-b-2 border-black text-white" style="background:#222;">
+   <div class="section   border-b-2 border-black text-black" style="background:#eee;">
      <div class="py-16 w-container">
         
        <div class="w-column">
@@ -25,36 +25,41 @@
           <div  class=" "  >
   
                 
-              <div class="text-lg text-center">
-                ⛏️ The Guild DAO is always accepting help ⛏️
+              <div class="text-xl text-center">
+                Supercharge  marketing for your application!
               </div>
-              <div class="text-sm text-center">
-                Here are some ways you can contribute!
+              <div class="text-sm text-center hidden">
+                 
               </div> 
              </div>
 
+               <div class="mt-4" style="">
+        <div class=""  style="margin:0 auto;max-width:600px">
+            <img src="@/assets/images/clubsos_v2.png" class="pl-4" />
+        </div>
+         </div>
 
-              <div  class=" flex flex-col lg:flex-row "  >
 
-                    <div class="p-4 ">
-                      <div class="ul mt-16">
-                        <div class="li mt-8">
-                        - Improve the Website <a href="https://github.com/admazzola/minersguild-web" target="_blank"> Frontend Code! 
-                                      </a> </div> 
+              <div  class=" flex flex-col lg:flex-row  mt-16"  >
 
-                        <div class="li mt-8">
-                        - Promote Dapps which are contributing fees to the Miners Guild DAO!
+                    <div class="p-4 bg-gray-300">
+                      <div class="ul ">
+                        <div class="li my-4">
+                        - Buy SOS with some of the revenue that your application generates and donate the SOS to the Club SOS contract!  It will be split equally amongst all stakers.
+                            </div> 
+
+                             <div class="li my-4">
+                        - This is done by transferring SOS tokens directly to 0xf14f78349882254e4d52cf24d9c5d3fd219d68c0.
+                            </div> 
+
+                        <div class="li my-4">
+                        - All SOS holders are now financially incentivized to promote your project. Let them know that you are revenue sharing to them via Club SOS!  They just need to stake their SOS in the Club SOS contract to start earning risk-free revenue share from your project. 
                         </div> 
-                        <div class="li mt-8">
-                        - Launch an Ethereum Smart Contract which pays fees to the Miners Guild DAO Contract during execution flow!
-                        </div> 
+                       
                             
                       </div> <!-- ul --> 
                     </div> 
-               <div class="px-16 py-16">
-                 
-                 <img src="@/assets/images/mining.gif" />
-                 </div> 
+              
                </div> 
           
            </div>

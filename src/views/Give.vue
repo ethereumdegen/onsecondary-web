@@ -109,7 +109,7 @@ import TabsBar from './components/TabsBar.vue';
 import GenericTable from './components/GenericTable.vue';
 import GenericDropdown from './components/GenericDropdown.vue';
   
-const GuildContractABI = require('../contracts/MinersGuild.json')
+const ClubContractABI = require('../contracts/ClubSOS.json')
 
 import FrontendHelper from '../js/frontend-helper.js'
 

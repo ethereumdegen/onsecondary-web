@@ -19,7 +19,7 @@
      <div class="py-16 w-container">
         
        <div class="  px-2 ">
-          <div class="text-lg font-bold mb-4"> Unstake Guild Shares    </div>
+          <div class="text-lg font-bold mb-4"> Unstake Club Shares    </div>
 
            
           <div  class=" " v-if="!connectedToWeb3">
@@ -48,7 +48,7 @@
 
               <div class="flex flex-row">
               <div class="w-1/2 ">
-                   {{expectedOutput}} 0xBTC
+                   {{expectedOutput}} SOS
                 </div> 
                  
               </div>
@@ -73,7 +73,7 @@
             </div>
 
              <div class="mb-4 block" v-if="formInputs.currencyAmountFormatted && formInputs.currencyAmountFormatted>0">
-               You will receive: {{  getEstimatedOutput(formInputs.currencyAmountFormatted)  }} 0xBTC
+               You will receive: {{  getEstimatedOutput(formInputs.currencyAmountFormatted)  }} SOS
               </div>
  
 
@@ -128,7 +128,10 @@ import TabsBar from './components/TabsBar.vue';
 import GenericTable from './components/GenericTable.vue';
 import GenericDropdown from './components/GenericDropdown.vue';
   
-const GuildContractABI = require('../contracts/MinersGuild.json')
+//const GuildContractABI = require('../contracts/MinersGuild.json')
+
+const ClubContractABI = require('../contracts/ClubSOS.json')
+
 
 import web3utils from 'web3-utils'
 
@@ -195,18 +198,18 @@ export default {
       let chainId = this.web3Plug.getActiveNetId()
         if(!chainId) chainId = 1;
 
-       let stakedTokenContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['0xbitcoin'].address
+       let stakedTokenContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['sos'].address
 
 
 
-      let guildContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['minersguild'].address
+      let guildContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['clubsos'].address
 
-       let tokenContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['guildreserve'].address
+       let tokenContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['clubreserve'].address
 
       
       
       let tokenContract = this.web3Plug.getTokenContract( tokenContractAddress );
-      let guildContract = this.web3Plug.getCustomContract( GuildContractABI,guildContractAddress );
+      let guildContract = this.web3Plug.getCustomContract( ClubContractABI,guildContractAddress );
 
 
       if(accountAddress &&  web3utils.isAddress(accountAddress)  ){
@@ -261,7 +264,7 @@ export default {
         console.log('rawOutput',rawOutput , this.expectedOutput )
        
 
-        let formattedOutput = MathHelper.rawAmountToFormatted ( rawOutput , 8 )
+        let formattedOutput = MathHelper.rawAmountToFormatted ( rawOutput , 18 )
          if(formattedOutput >  this.expectedOutput){
           formattedOutput =  this.expectedOutput
         }
@@ -277,15 +280,15 @@ export default {
       let accountAddress = this.web3Plug.getActiveAccountAddress()
 
       let chainId = this.web3Plug.getActiveNetId()
-      let guildContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['minersguild'].address
+      let guildContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['clubsos'].address
 
-       let tokenContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['0xbitcoin'].address
+       let tokenContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['sos'].address
 
       let currencyDecimals  = 8 
       let currencyAmountRaw = MathHelper.formattedAmountToRaw(this.formInputs.currencyAmountFormatted,currencyDecimals) 
  
       let tokenContract = this.web3Plug.getTokenContract( tokenContractAddress );
-      let guildContract = this.web3Plug.getCustomContract( GuildContractABI,guildContractAddress );
+      let guildContract = this.web3Plug.getCustomContract( ClubContractABI,guildContractAddress );
  
 
       let response = await guildContract.methods.unstakeCurrency(  currencyAmountRaw,  tokenContractAddress ).send({from:  accountAddress })

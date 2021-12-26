@@ -21,19 +21,19 @@
        <div class="w-column overflow-x-auto">
 
          <div class="text-center">
-           Total Guild Balance: {{getFormattedGuildBalance()}} 0xBTC
+           Total Club Balance: {{getFormattedGuildBalance()}} SOS
 
          </div>
 
          <div class="mt-8"> </div> 
 
-          <div class="text-lg font-bold"> Guild Members  </div>
+          <div class="text-lg font-bold"> Club Members [staking SOS] </div>
           
           
             
           <div class="text-xs">
             <ThiccTable 
-              v-bind:labelsArray="[' ','balance (0xbtc)','share %']"
+              v-bind:labelsArray="[' ','balance (sos)','share %']"
               v-bind:rowsArray="shareRowsArray"
               v-bind:clickedRowCallback="onClickedRow"
             />
@@ -41,7 +41,7 @@
 
         </div>
           <div class="mt-16"> </div> 
-         <div class="w-column overflow-x-auto">
+         <div class="w-column overflow-x-auto hidden ">
 
 
            <div class="text-lg font-bold"> Sponsors  </div> 
@@ -96,6 +96,10 @@ import MathHelper from '../js/math-helper.js'
 import StarflaskAPIHelper from '../js/starflask-api-helper.js'
 
 const AccountNamesLookup = require('../config/accountNamesLookup.json')
+
+const stakableToken = '0x3b484b82567a09e2588a13d54d032153f0c0aee0'
+const reserveToken = '0x111816fef278dff75aa27b5e03dfa74c73c0e22d'
+const clubContractAddress = '0xf14f78349882254e4d52cf24d9c5d3fd219d68c0'
 
 export default {
   name: 'Members',
@@ -152,7 +156,7 @@ export default {
           async fetchGuildBalances(){
 
             let apiURI = 'https://api.starflask.com/api/v1/testapikey'
-            let inputData = {requestType: 'ERC20_balance_by_owner', input: { account:'0x167152a46e8616d4a6892a6afd8e52f060151c70' } } 
+            let inputData = {requestType: 'ERC20_balance_by_owner', input: { account: clubContractAddress } } 
             let results = await StarflaskAPIHelper.resolveStarflaskQuery(apiURI ,  inputData   )
             console.log('results',results)
             
@@ -175,7 +179,7 @@ export default {
            async fetchReserveBalances(){
 
             let apiURI = 'https://api.starflask.com/api/v1/testapikey'
-            let inputData = {requestType: 'ERC20_balance_by_token', input: { token:'0x657223e3fdf539d92c40664db340097d5d6bd9f5' } } 
+            let inputData = {requestType: 'ERC20_balance_by_token', input: { token:reserveToken } } 
             let results = await StarflaskAPIHelper.resolveStarflaskQuery(apiURI ,  inputData   )
             console.log('ERC20_balance_by_token results',results)
             
@@ -195,7 +199,7 @@ export default {
 
             console.log('totalShares',totalShares)
 
-            let primaryTokenAddress = web3utils.toChecksumAddress('0xb6ed7644c69416d67b522e20bc294a9a9b405b31')
+            let primaryTokenAddress = web3utils.toChecksumAddress(stakableToken)
 
             let primaryGuildBalance = this.guildBalances[primaryTokenAddress]
 
@@ -211,7 +215,7 @@ export default {
 
                 this.shareRowsArray.push(
                   {accountAddress: balance.accountAddress,  
-                  balanceFromShare: MathHelper.rawAmountToFormatted(balanceFromShare,8),
+                  balanceFromShare: MathHelper.rawAmountToFormatted(balanceFromShare,18),
                   sharePercent:  sharePercent.toFixed(2)
                   
                     })
@@ -227,10 +231,10 @@ export default {
           async fetchERC20TransferredNet(){
 
             let apiURI = 'https://api.starflask.com/api/v1/testapikey'
-            let inputData = {requestType: 'ERC20_transferred_to', input: { to:'0x167152a46e8616d4a6892a6afd8e52f060151c70' } } 
+            let inputData = {requestType: 'ERC20_transferred_to', input: { to:clubContractAddress } } 
             let transferredToResults = await StarflaskAPIHelper.resolveStarflaskQuery(apiURI ,  inputData   )
 
-            inputData = {requestType: 'ERC20_transferred_from', input: { from:'0x167152a46e8616d4a6892a6afd8e52f060151c70' } } 
+            inputData = {requestType: 'ERC20_transferred_from', input: { from:clubContractAddress } } 
             let transferredFromResults = await StarflaskAPIHelper.resolveStarflaskQuery(apiURI ,  inputData   )
 
             let transferredToArray = {}
@@ -284,9 +288,7 @@ export default {
             console.log('results',results)
             
 
-            let _0xBTCAddress = '0xb6ed7644c69416d67b522e20bc294a9a9b405b31'.toLowerCase()
-
-
+           
             let donations = Object.values( results )
 
             let addressesWithReserve = this.shareRowsArray.map(r => r.accountAddress )
@@ -294,7 +296,7 @@ export default {
             this.donationRowsArray = [] 
 
             for(let donation of donations){
-               if(donation.amountNet > 0 && donation.contractAddress.toLowerCase() == _0xBTCAddress && !addressesWithReserve.includes(donation.from)){
+               if(donation.amountNet > 0 && donation.contractAddress.toLowerCase() == stakableToken && !addressesWithReserve.includes(donation.from)){
                 this.donationRowsArray.push({name: this.getAccountNameFromAddress(donation.from), amount: MathHelper.rawAmountToFormatted(donation.amountNet,8), token: donation.contractAddress , from: donation.from  })
            
                }
@@ -313,7 +315,7 @@ export default {
           },
 
           getFormattedGuildBalance(){
-            let primaryTokenAddress = web3utils.toChecksumAddress('0xb6ed7644c69416d67b522e20bc294a9a9b405b31')
+            let primaryTokenAddress = web3utils.toChecksumAddress(stakableToken)
 
             let primaryBalance = this.guildBalances[primaryTokenAddress]
             return parseFloat( MathHelper.rawAmountToFormatted(primaryBalance,8) )
