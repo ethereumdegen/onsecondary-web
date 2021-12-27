@@ -76,8 +76,8 @@
                 
 
                 <ul class=" "> 
-                    <li class="my-4"> 1. Stake SOS in the Club SOS Contract </li>
-                    <li class="my-4" > 2. Web3 applications donate some of their income to the Contract as revenue-share to use as a marketing+branding boost to all SOS holders </li>
+                    <li class="my-4"> 1. Stake SOS in the 'Club SO'S Contract </li>
+                    <li class="my-4" > 2. Web3 applications donate some of their income to the 'Club SOS' Contract as revenue-share to use as a marketing+branding boost to all SOS holders </li>
                     <li class="my-4" > 3. Unstake SOS at any time to withdraw <span class="text-purple-300"> your original deposit + accrued donations </span>  </li>
                </ul>
 
