@@ -237,10 +237,10 @@ export default {
   
 
        let currencyAmountBN = new BN( currencyAmountRaw ) 
-       let minStakeCoins = '1000'
+       let minStakeCoins = '1000000'
        let minimumToStake = new BN( minStakeCoins ).mul( new BN('1000000000000000000')   )
 
-       console.log('meep', currencyAmountBN, minimumToStake)
+       
       if(currencyAmountBN.lt( minimumToStake ) ){
         let errorMessage = 'Must stake at least '.concat(parseInt(minStakeCoins)).concat(' tokens.')
 
