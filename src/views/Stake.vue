@@ -21,7 +21,7 @@
        <div class="  px-2 ">
           <div class="text-lg font-bold mb-4"> Stake to Earn  </div>
 
-          <div class="text-sm   mb-8"> Deposit SOS in the Club SOS contract to earn 'Club Reserve tokens'. Club Reserve tokens can be redeemed back to the contract to withdraw your original deposit plus any fees that the contract has accrued from marketing sponsors.   </div>
+          <div class="text-sm mb-8"> Deposit SOS in the Club SOS contract to earn 'Club Reserve tokens'. Club Reserve tokens can be redeemed back to the contract to withdraw your original deposit plus any fees that the contract has accrued from marketing sponsors.   </div>
            
           <div  class=" " v-if="!connectedToWeb3">
               <NotConnectedToWeb3 />
@@ -43,7 +43,11 @@
             </div>
               <div class="flex flex-row">
               <div class="w-f ">
-                    <input type="number"   v-model="formInputs.currencyAmountFormatted"  class="text-gray-900 border-2 border-black font-bold px-4 text-xl focus:ring-indigo-500 focus:border-indigo-500 block w-full py-4 pl-7 pr-12   border-gray-300 rounded-md" placeholder="0.00">
+                    <input type="number" 
+                    @input="clearErrorMessage()"
+                     v-model="formInputs.currencyAmountFormatted" 
+                      class="text-gray-900 border-2 border-black font-bold px-4 text-xl focus:ring-indigo-500 focus:border-indigo-500 block w-full py-4 pl-7 pr-12   border-gray-300 rounded-md" 
+                      placeholder="0.00">
                 </div> 
                  
               </div>
@@ -54,6 +58,21 @@
  
 
           </div>
+
+
+             <div class="py-4" v-if=" connectedToWeb3 && !submitComplete"> 
+             
+                 <div class="  p-4 bg-red-600 rounded text-white font-bold" v-if="errorMessage">
+                   
+
+                  Error:  {{errorMessage}}
+               
+                </div> 
+ 
+               
+
+          </div>
+
 
            <div class="py-4" v-if=" connectedToWeb3 && !submitComplete"> 
              
@@ -73,6 +92,9 @@
 
           </div>
 
+
+
+         
 
 
           
@@ -100,7 +122,8 @@ import NotConnectedToWeb3 from './components/NotConnectedToWeb3.vue'
 import Web3Plug from '../js/web3-plug.js'  
  import MathHelper from '../js/math-helper.js'  
  
-
+ import {BN} from 'web3-utils'
+ 
 import Navbar from './components/Navbar.vue';
  
 import Footer from './components/Footer.vue';
@@ -132,7 +155,8 @@ export default {
       tokenAllowanceFormatted: null,
        
       connectedToWeb3: false ,
-      submitComplete:false
+      submitComplete:false,
+      errorMessage: undefined 
     }
   },
 
@@ -210,7 +234,21 @@ export default {
 
       let currencyDecimals  = 18 
       let currencyAmountRaw = MathHelper.formattedAmountToRaw(this.formInputs.currencyAmountFormatted,currencyDecimals) 
- 
+  
+
+       let currencyAmountBN = new BN( currencyAmountRaw ) 
+       let minStakeCoins = '1000'
+       let minimumToStake = new BN( minStakeCoins ).mul( new BN('1000000000000000000')   )
+
+       console.log('meep', currencyAmountBN, minimumToStake)
+      if(currencyAmountBN.lt( minimumToStake ) ){
+        let errorMessage = 'Must stake at least '.concat(parseInt(minStakeCoins)).concat(' tokens.')
+
+        this.setErrorMessage( errorMessage )
+        console.error(errorMessage)
+        return 
+      } 
+
       let tokenContract = this.web3Plug.getTokenContract( tokenContractAddress );
      
       let guildContract  = this.web3Plug.getCustomContract( ClubContractABI , guildContractAddress );
@@ -241,6 +279,14 @@ export default {
       this.tokenBalanceFormatted = parseFloat(   MathHelper.rawAmountToFormatted(this.tokenBalanceRaw  , 18  ) )
       this.tokenAllowanceFormatted = parseFloat(   MathHelper.rawAmountToFormatted(this.tokenAllowanceRaw  , 18  ) )
 
+    },
+
+    setErrorMessage(msg){
+      this.errorMessage = msg
+    },
+
+    clearErrorMessage(){
+      this.errorMessage = undefined
     },
 
 
