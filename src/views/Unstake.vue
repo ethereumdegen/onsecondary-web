@@ -217,7 +217,7 @@ export default {
       
 
 
-      let currencyDecimals = 8
+      let currencyDecimals = 18
       let sharesBalanceRaw = await tokenContract.methods.balanceOf( accountAddress ).call()
 
       let expectedOutputRaw = await guildContract.methods._vaultOutputAmount( sharesBalanceRaw, stakedTokenContractAddress ).call()
@@ -248,7 +248,7 @@ export default {
 
       getEstimatedOutput( amountFormatted ){
 
-      let currencyDecimals = 8
+      let currencyDecimals = 18
 
       let rawInput =  MathHelper.formattedAmountToRaw(amountFormatted,currencyDecimals) 
 
@@ -284,7 +284,7 @@ export default {
 
        let tokenContractAddress = this.web3Plug.getContractDataForNetworkID(chainId)['sos'].address
 
-      let currencyDecimals  = 8 
+      let currencyDecimals  = 18 
       let currencyAmountRaw = MathHelper.formattedAmountToRaw(this.formInputs.currencyAmountFormatted,currencyDecimals) 
  
       let tokenContract = this.web3Plug.getTokenContract( tokenContractAddress );
