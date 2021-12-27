@@ -98,8 +98,9 @@ import StarflaskAPIHelper from '../js/starflask-api-helper.js'
 const AccountNamesLookup = require('../config/accountNamesLookup.json')
 
 const stakableToken = '0x3b484b82567a09e2588a13d54d032153f0c0aee0'
-const reserveToken = '0x111816fef278dff75aa27b5e03dfa74c73c0e22d'
-const clubContractAddress = '0xf14f78349882254e4d52cf24d9c5d3fd219d68c0'
+
+const reserveToken = '0xd628f9ff5bbf1cd61acc1b7b9d6dc7798a1c33f2'
+const clubContractAddress = '0xdb3b9730353232d972b4e0ceff1297b6760d127b'
 
 export default {
   name: 'Members',

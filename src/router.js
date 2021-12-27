@@ -9,7 +9,7 @@ import Stake from './views/Stake.vue'
 import Unstake from './views/Unstake.vue'
   
 import Contribute from './views/Contribute.vue'
-import Give from './views/Give.vue'
+ 
 
 import Collection from './views/Collection.vue'
   
@@ -53,12 +53,7 @@ export default new Router({
       name: 'contribute',
       component: Contribute
     } ,
-    {
-      path: '/give',
-      name: 'give',
-      component: Give
-    } ,
-
+  
 
     {
       path: '/collection',
