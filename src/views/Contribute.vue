@@ -35,7 +35,7 @@
 
                <div class="mt-4" style="">
         <div class=""  style="margin:0 auto;max-width:600px">
-            <img src="@/assets/images/clubsos_v2.png" class="pl-4" />
+            <img src="@/assets/images/clubsos_v4.png" class="pl-4" />
         </div>
          </div>
 
