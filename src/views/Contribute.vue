@@ -38,7 +38,7 @@
          </div>
 
               <div class="text-xl text-center my-16 ">
-                Supercharge  marketing for your application via Revenue Sharing
+                Supercharge  marketing for your application with revenue sharing
               </div>
 
 
