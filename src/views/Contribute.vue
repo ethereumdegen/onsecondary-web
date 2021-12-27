@@ -25,9 +25,7 @@
           <div  class=""  >
   
                 
-              <div class="text-xl text-center">
-                Supercharge  marketing for your application!
-              </div>
+         
               <div class="text-sm text-center hidden">
                  
               </div> 
@@ -39,13 +37,17 @@
         </div>
          </div>
 
+              <div class="text-xl text-center my-16 ">
+                Supercharge  marketing for your application via Revenue Sharing
+              </div>
 
-              <div  class=" flex flex-col lg:flex-row  mt-16"  >
+
+              <div  class=" flex flex-col lg:flex-row  "  >
 
                     <div class="p-4 bg-gray-300">
                       <div class="ul ">
                         <div class="li my-4">
-                        - Buy SOS with some of the revenue that your application generates and donate the SOS to the Club SOS contract!  It will be split equally amongst all stakers.
+                        - Buy SOS with earnings from your application and donate that SOS to the Club SOS contract. It will be split equally amongst all stakers.
                             </div> 
 
                              <div class="li my-4">
