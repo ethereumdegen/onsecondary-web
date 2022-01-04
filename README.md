@@ -1,7 +1,6 @@
-# Club SOS
+# OnSecondary
 
-Community DAO for Marketing + Promotions for NFT projects 
-  
+Microserviced NFT Exchange
  
 
 ### Development commands

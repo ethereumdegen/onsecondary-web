@@ -1,6 +1,6 @@
 {
-  "name": "club-sos-web",
-  "description": "Marketing DAO",
+  "name": "onsecondary-web",
+  "description": "NFT Exchange Platform",
   "version": "0.1.0",
   "type": "module",
   "postcss": {

@@ -1,4 +1,3 @@
-# The Guild 
+# OnSecondary
 
- 
- Neutral DAO for the 0xBitcoin community 
+Microserviced NFT Exchange
