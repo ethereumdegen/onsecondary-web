@@ -36,7 +36,7 @@
           
            <div v-for="item in tileItems" :key="item.imageName" class="border-8 border-black p-2 m-2 inline-block"  style=" max-width:600px">
               <a :href="item.url" target='_blank'>
-               <img :src="getImgUrl(item.imageName)" class="pl-4" />
+               <img :src="getImgUrl(item.imageName)" class="p-2" />
               </a>
           </div>
 
