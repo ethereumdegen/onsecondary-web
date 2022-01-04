@@ -25,22 +25,29 @@
  
          <div class="    w-full mt-8 py-8  px-1  text-center">
 
-            <div class="hidden text-white text-xl my-4">  Neutral grass-roots organization.  </div> 
-
-     
-
+            <div class="  text-gray-900 text-xl my-4 px-32"> OnSecondary is a family of collection-specific NFT Marketplaces that all share one backend Smart Contract with revenue sharing.   </div> 
+ 
            
 
-        <div class="" style="">
-        <div class=""  style="margin:0 auto;max-width:600px">
-            <img src="@/assets/images/clubsos_v3.png" class="pl-4" />
-        </div>
+        <div class="margin:0 auto; " style="">
+
+
+
+          
+           <div v-for="item in tileItems" :key="item.imageName" class="border-8 border-black p-2 m-2 inline-block"  style=" max-width:600px">
+              <a :href="item.url" target='_blank'>
+               <img :src="getImgUrl(item.imageName)" class="pl-4" />
+              </a>
+          </div>
+
+ 
+
          </div>
 
 
         <div class="mt-16">
            <div>
-            <router-link to="/members"  class="select-none no-underline bg-gray-200 mb-4 p-2 inline-block rounded hover:bg-gray-300 border-gray-800 border-2 cursor-pointer text-gray-800" style=" text-shadow: 1px 1px #eee;"> View Members  </router-link> 
+            <router-link to="/members"  class="select-none no-underline bg-gray-200 mb-4 p-2 inline-block rounded hover:bg-gray-300 border-gray-800 border-2 cursor-pointer text-gray-800" style=" text-shadow: 1px 1px #eee;"> View Revenue Sharing  </router-link> 
         </div>
         
          <div>
@@ -48,9 +55,7 @@
         </div>
 
 
-          <div>
-            <router-link to="/contribute"  class="select-none no-underline bg-gray-200 mb-4 p-2 inline-block rounded hover:bg-gray-300 border-gray-800 border-2 cursor-pointer text-gray-800" style=" text-shadow: 1px 1px #eee;"> Market your Dapps with Club SOS  </router-link> 
-        </div>
+          
         </div>
 
 
@@ -76,8 +81,8 @@
                 
 
                 <ul class=" "> 
-                    <li class="my-4"> 1. Stake SOS in the 'Club SOS' Contract </li>
-                    <li class="my-4" > 2. Web3 applications donate some of their income to the 'Club SOS' Contract as revenue-share to use as a marketing+branding boost to all SOS holders </li>
+                    <li class="my-4"> 1. SOS is staked in the 'Club SOS' Contract </li>
+                    <li class="my-4" > 2. Web3 applications such as OnSecondary Exchanges donate some of their income to the 'Club SOS' Contract as revenue-share to use as a marketing+branding boost to all SOS holders </li>
                     <li class="my-4" > 3. Unstake SOS at any time to withdraw <span class="text-purple-300"> your original deposit + accrued donations </span>  </li>
                </ul>
 
@@ -132,7 +137,14 @@ export default {
       activePanelId: null, 
        
 
-      
+      tileItems: [{
+        url: 'https://swampz.io',
+        imageName: 'swampztile.png'
+
+      },{
+         url: 'https://baycmarket.io',
+         imageName: 'baycmarkettile.png'
+      }]
     }
   },
 
@@ -180,6 +192,10 @@ export default {
 
           getRouteTo(dest){
             return FrontendHelper.getRouteTo(dest)
+          },
+
+          getImgUrl(fileName){
+               return require('../assets/images/'+fileName)
           }
 
        
