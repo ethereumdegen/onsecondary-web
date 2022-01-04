@@ -69,37 +69,7 @@
    </div>
 
 
-    <div class="section  text-white  border-b-2 border-black " style="background:#222;">
-     <div class="w-container  ">
-
-         
-
-          <div class=" w-2/3  mt-8 py-8" style="margin: 0 auto;">
-           
-                <div class="text-2xl text-center"> How It Works </div>
-
-                
-
-                <ul class=" "> 
-                    <li class="my-4"> 1. SOS is staked in the 'Club SOS' Contract </li>
-                    <li class="my-4" > 2. Web3 applications such as OnSecondary Exchanges donate some of their income to the 'Club SOS' Contract as revenue-share to use as a marketing+branding boost to all SOS holders </li>
-                    <li class="my-4" > 3. Unstake SOS at any time to withdraw <span class="text-purple-300"> your original deposit + accrued donations </span>  </li>
-               </ul>
-
-                <div class="text-lg text-center my-16  "> TLDR: This is donations router for community-driven marketing and incentivization. </div>
-
-
-                <p class="text-gray-500 bg-gray-800 p-4 mt-8"> <img src="@/assets/images/information.png" width="20" class="inline"/> Services perform revenue-share to the Club contract to incentivize SOS holders to participate and market their application since this gives SOS holders a financial interest in the application's success. </p>
-
-         </div>
-
-        
-         
-
-
-     </div>
-   </div>
-
+  
 
 
     
