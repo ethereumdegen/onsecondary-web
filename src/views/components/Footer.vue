@@ -20,6 +20,7 @@
           <h3 class=" text-lg font-bold ">Community &amp; Social</h3>
           
             <a href="https://discord.gg/mUPRJbpMsG" target="_blank" class="no-underline inline-block text-sm text-gray-200 hover:text-purple-300">OnSecondary Discord</a>
+            <a href="https://twitter.com/onsecondarynft" target="_blank" class="no-underline inline-block text-sm text-gray-200 hover:text-purple-300">OnSecondary Twitter</a>
             
          </div>
 
