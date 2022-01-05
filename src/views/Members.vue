@@ -20,8 +20,14 @@
         
        <div class="w-column overflow-x-auto">
 
+           <div class="text-center text-xl ">
+             Revenue Sharing
+
+
+         </div>
+
          <div class="text-center">
-           Total Club Balance: {{getFormattedGuildBalance()}} SOS
+           Total Staked Balance: {{getFormattedGuildBalance()}} SOS
 
 
          </div>
@@ -35,7 +41,7 @@
 
          <div class="mt-8"> </div> 
 
-          <div class="text-lg font-bold"> Club Members [staking SOS] </div>
+          <div class="text-lg font-bold">  Members [staking SOS] </div>
           
           
             
