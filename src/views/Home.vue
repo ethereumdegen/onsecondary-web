@@ -31,15 +31,18 @@
 
         <div class="margin:0 auto; " style="">
 
-
-
-          
-           <div v-for="item in tileItems" :key="item.imageName" class="border-8 border-black p-2 m-2 inline-block"  style=" max-width:600px">
-              <a :href="item.url" target='_blank'>
-               <img :src="getImgUrl(item.imageName)" class="p-2" style="height:400px"/>
+          <div class="inline-block">
+           <div  class="border-8 border-black p-2 m-2 "  style=" max-width:600px">
+              <a href="https://market.onsecondary.com" target='_blank'>
+               <img :src="getImgUrl('OnSecondaryMarketPromo.png')" class="p-2" style="height:400px"/>
               </a>
-          </div>
 
+             
+          </div>
+           <a href="https://market.onsecondary.com" target='_blank'>
+                https://market.onsecondary.com
+            </a>
+            </div>
  
 
          </div>
