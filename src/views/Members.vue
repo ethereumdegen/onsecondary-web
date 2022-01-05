@@ -336,9 +336,9 @@ export default {
 
             let primaryBalance = this.guildBalances[primaryTokenAddress]
 
-           
+              let constantAmt= 50081793 * 1000000000000000000
 
-             return 0 
+             return  constantAmt  
           },
 
 
