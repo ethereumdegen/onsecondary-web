@@ -34,7 +34,7 @@
           <div class="inline-block">
            <div  class="border-8 border-black p-2 m-2 "  style=" max-width:600px">
               <a href="https://market.onsecondary.com" target='_blank'>
-               <img :src="getImgUrl('OnSecondaryMarketPromo.png')" class="p-2" style="height:400px"/>
+               <img :src="getImgUrl('OnSecondaryMarketPromo.png')" class="p-2"/>
               </a>
 
              
