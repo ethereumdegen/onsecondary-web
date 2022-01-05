@@ -23,7 +23,15 @@
          <div class="text-center">
            Total Club Balance: {{getFormattedGuildBalance()}} SOS
 
+
          </div>
+
+
+         <div class="text-center">
+           Stakers have earned: {{getStakersEarningsTotalFormatted()}} SOS
+
+         </div>
+
 
          <div class="mt-8"> </div> 
 
@@ -320,6 +328,23 @@ export default {
 
             let primaryBalance = this.guildBalances[primaryTokenAddress]
             return parseFloat( MathHelper.rawAmountToFormatted(primaryBalance,18) )
+          },
+
+          getStakersEarningsTotal(){
+            //balance of sos in contract - supply of reserve 
+            let primaryTokenAddress = web3utils.toChecksumAddress(stakableToken)
+
+            let primaryBalance = this.guildBalances[primaryTokenAddress]
+
+           
+
+             return 0 
+          },
+
+
+           getStakersEarningsTotalFormatted(){
+                      
+            return parseFloat( MathHelper.rawAmountToFormatted(this.getStakersEarningsTotal(),18) )
           },
 
           getAccountNameFromAddress(address){
