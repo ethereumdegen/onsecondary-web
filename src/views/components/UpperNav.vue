@@ -13,7 +13,7 @@
         }"
       >
         <button
-          class="flex text-md  p-2 m-1 mx-2 text-gray-900 items-center pr-3 bg-transparent focus:outline-none focus:shadow-solid transition duration-150 ease-in-out border-2 border-gray-200"
+          class="flex text-md bg-gray-200 p-2 m-1 mx-2 text-gray-900 items-center pr-3 bg-transparent focus:outline-none focus:shadow-solid transition duration-150 ease-in-out border-2 border-gray-200"
           :class="{ 'border-gray-300 bg-gray-500 text-white ': isShown }"
           aria-label="User menu"
           aria-haspopup="true"
@@ -62,7 +62,7 @@
          />
 
           <span class="  " style="max-width:120px">
-          <a   v-bind:href="getEtherscanBaseURL()+'/address/'+web3Plug.getActiveAccountAddress()" class="text-gray-800  "   target="_blank">  {{web3Plug.getActiveAccountAddress()}} </a>
+          <a   v-bind:href="getEtherscanBaseURL()+'/address/'+web3Plug.getActiveAccountAddress()" class="text-gray-200  "   target="_blank">  {{web3Plug.getActiveAccountAddress()}} </a>
          </span>
          </div>
       </div>

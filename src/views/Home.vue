@@ -25,7 +25,7 @@
  
          <div class="    w-full mt-8 py-8  px-1  text-center">
 
-            <div class="  text-gray-900 text-xl my-4 px-32"> OnSecondary is a family of collection-specific NFT Marketplaces that all share one backend Smart Contract with revenue sharing.   </div> 
+            <div class="  text-gray-900 text-xl my-4 px-16"> OnSecondary is a premium NFT Marketplace with 1% fee and revenue sharing paid out to the Community.   </div> 
  
            
 
@@ -36,7 +36,7 @@
           
            <div v-for="item in tileItems" :key="item.imageName" class="border-8 border-black p-2 m-2 inline-block"  style=" max-width:600px">
               <a :href="item.url" target='_blank'>
-               <img :src="getImgUrl(item.imageName)" class="p-2" />
+               <img :src="getImgUrl(item.imageName)" class="p-2" style="height:400px"/>
               </a>
           </div>
 
@@ -107,13 +107,9 @@ export default {
       activePanelId: null, 
        
 
-      tileItems: [{
-        url: 'https://swampz.io',
-        imageName: 'swampztile.png'
-
-      },{
-         url: 'https://baycmarket.io',
-         imageName: 'baycmarkettile.png'
+      tileItems: [ {
+         url: 'https://market.onsecondary.com',
+         imageName: 'OnSecondaryMarketPromo.png'
       }]
     }
   },

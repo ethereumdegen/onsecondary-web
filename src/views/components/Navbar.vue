@@ -1,6 +1,6 @@
 <template>
   <div data-collapse="small" data-animation="default" data-duration="400" class="navbar w-nav">
-    <div class=" bg-transparent">
+    <div class=" bg-gray-700">
     <div class="container w-container">
       <div class="w-full flex flex-row">
 
@@ -8,7 +8,7 @@
         <div class=" inline-block mx-2 ">
         <img class="inline-block mb-1 " width="24" height="24" src="/images/preserver.png" />
         </div>
-        <router-link to="/" class='no-underline flex-grow inline text-xl text-gray-900 font-bold'>OnSecondary</router-link>
+        <router-link to="/" class='no-underline flex-grow inline text-xl text-gray-200 font-bold'>OnSecondary</router-link>
        </div>
  
  
